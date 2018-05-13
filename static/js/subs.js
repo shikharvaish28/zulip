@@ -737,7 +737,7 @@ function ajaxUnsubscribe(sub) {
     // TODO: use stream_id when backend supports it
     if (sub.invite_only) {
         var unsubscribe_stream_modal = templates.render('unsubscribe_stream', {stream_name: sub.name});
-        $(".subscription_settings").append(unsubscribe_stream_modal);
+        $("#unsubscribe_stream_modal_container").empty().append(unsubscribe_stream_modal);
         overlays.open_modal("unsubscribe_stream_modal");
         $("#unsubscribe_stream_modal").on("click", "#unsubscribe_stream_button", function (e) {
             e.preventDefault();

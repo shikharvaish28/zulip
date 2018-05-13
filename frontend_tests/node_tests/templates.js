@@ -1393,6 +1393,16 @@ run_test('typing_notifications', () => {
     assert.equal(li.text(), 'Hamlet is typing...');
 
 });
+(function unsubscribe_stream_modal() {
+    var args = {
+        stream_name: "Public stream",
+    };
+    var html = render('unsubscribe_stream', args);
+    var modal_header = $(html).find("#unsubscribe_stream_modal_label");
+    assert.equal(modal_header.text(), "translated: Unsubscribe to #" + args.stream_name);
+    var button = $(html).find("#unsubscribe_stream_button");
+    assert.equal(button.text(), "translated: Yes, Unsubscribe");
+}());
 
 run_test('user_group_info_popover', () => {
     var html = render('user_group_info_popover');
