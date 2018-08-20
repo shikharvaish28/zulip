@@ -72,16 +72,27 @@
               "is_checked" page_params.enable_offline_email_notifications
               "label" settings_label.enable_offline_email_notifications}}
 
-            {{partial "settings_checkbox"
-              "setting_name" "enable_offline_push_notifications"
-              "is_checked" page_params.enable_offline_push_notifications
-              "label" settings_label.enable_offline_push_notifications}}
-
-            <div class="input-group disableable {{#unless page_params.enable_offline_push_notifications}}control-label-disabled{{/unless}}">
+            {{!-- Mobile notifications when offline --}}
+            <div class="input-group {{#unless page_params.realm_push_notifications_enabled}}control-label-disabled{{/unless}}">
+                <label class="checkbox">
+                    <input type="checkbox" name="enable_offline_push_notifications" id="enable_offline_push_notifications"
+                    {{#unless page_params.realm_push_notifications_enabled}}disabled="disabled"{{/unless}}
+                    {{#if page_params.realm_push_notifications_enabled}}
+                    checked="checked"
+                    {{/if}} />
+                    <span></span>
+                </label>
+                    <label for="enable_offline_push_notifications" id="enable_offline_push_notifications_label" class="inline-block">
+                        {{settings_label.enable_offline_push_notifications}}
+                    </label>
+                </div>
+            </div>          
+            {{!-- Mobile notifications when online --}}
+            <div class="input-group disableable {{#unless page_params.realm_push_notifications_enabled}}control-label-disabled{{/unless}}">
                 <label class="checkbox">
                     <input type="checkbox" name="enable_online_push_notifications" id="enable_online_push_notifications"
                       {{#unless page_params.enable_offline_push_notifications}}disabled="disabled"{{/unless}}
-                      {{#if page_params.enable_online_push_notifications}}
+                      {{#if page_params.realm_push_notifications_enabled}}
                       checked="checked"
                       {{/if}} />
                     <span></span>
