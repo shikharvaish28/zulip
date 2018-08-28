@@ -65,6 +65,12 @@ $("body").ready(function () {
 
     $("body").on("click", "[data-sidebar-form-close]", close_sidebar);
 
+    $(".push_notification_warning").css("background", "green");
+    console.log("ajksdnjsd");
+    $(".push_notification_warning").on("hover", function (e) {
+        console.log("Hello");
+    });
+
     $("#settings_overlay_container").click(function (e) {
         if (!overlays.is_modal_open()) {
             return;
