@@ -192,7 +192,7 @@ SSO_APPEND_DOMAIN = None  # type: Optional[str]
 # notification bouncer server to the mobile apps.  See
 # https://zulip.readthedocs.io/en/latest/production/mobile-push-notifications.html
 # for information on how to sign up for and configure this.
-PUSH_NOTIFICATION_BOUNCER_URL = 'https://push.zulipchat.com'
+#PUSH_NOTIFICATION_BOUNCER_URL = 'https://push.zulipchat.com'
 
 # Whether to redact the content of push notifications.  This is less
 # usable, but avoids sending message content over the wire.  In the
